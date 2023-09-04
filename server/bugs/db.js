@@ -20,6 +20,10 @@ function setMaxBugCount(count) {
   db.set("maxCount", count).write();
 }
 
+function getMaxBugCount() {
+  return db.get("maxCount").value();
+}
+
 // all , critical, none
 function setWaring(value) {
   db.set("warning", value).write();
@@ -30,4 +34,11 @@ function getBugHistory() {
   return value;
 }
 
-module.exports = { getBugCount, setBugCount, getBugHistory, setWaring };
+module.exports = {
+  getBugCount,
+  setBugCount,
+  getBugHistory,
+  setWaring,
+  setMaxBugCount,
+  getMaxBugCount,
+};
