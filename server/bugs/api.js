@@ -2,7 +2,6 @@ const axios = require("axios").default;
 
 const baseURL =
   "https://xindaim.coding.net/api/project/11807143/issues/DEFECT/list?filterId=10764982";
-const token = process.env.CODING_TOKEN;
 
 function assembleConditions(type) {
   const conditions = [
@@ -76,6 +75,7 @@ function assembleConfig(type) {
 }
 
 async function getBugCount(type) {
+  const token = process.env.CODING_TOKEN;
   const { data } = await axios.post(baseURL, assembleConfig(type), {
     headers: {
       Authorization: `token ${token}`,
